@@ -1,3 +1,8 @@
+## Problem4(**Find the Index of the First Occurrence in a String)**
+
+Given two strings `needle` and `haystack`, return the index of the first occurrence of `needle` in `haystack`, or `-1` if `needle` is not part of `haystack`. 
+
+```python
 def strStr(haystack, needle):
     """
     Finds the index of the first occurrence of 'needle' in 'haystack'.
@@ -23,5 +28,4 @@ def strStr(haystack, needle):
     # If we finish the loop with no match, needle is not in haystack
     return -1
 
-
-
+```
