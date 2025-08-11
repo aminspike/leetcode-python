@@ -74,3 +74,31 @@ def longestCommonPrefix(strs):
     return strs[0]
 
 ```
+### Solution 3 (`min`/`max`)
+
+- Use `min()` and `max()` on the list of strings (lexicographically)
+- Then find the common prefix between these two, since min and max differ the most
+
+```python
+def longestCommonPrefix(strs):
+    # If the list is empty, there is no common prefix
+    if not strs:
+        return ""
+
+    # Find the alphabetically smallest and largest words
+    # These are NOT based on length, but on dictionary order (lexicographical order)
+    s1 = min(strs)  # First word in alphabetical order
+    s2 = max(strs)  # Last word in alphabetical order
+
+    # Compare characters of s1 and s2 from the beginning
+    # The common prefix of these two will also be the common prefix of the entire list
+    for i in range(len(s1)):  # Limit loop to length of s1 (can't have prefix longer than shortest)
+        if s1[i] != s2[i]:
+            # Mismatch found — return prefix up to this point
+            return s1[:i]
+
+    # If we finish the loop without mismatches,
+    # it means s1 is entirely a prefix of s2 (or they are equal)
+    return s1
+
+```
